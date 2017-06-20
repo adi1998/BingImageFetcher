@@ -1,4 +1,4 @@
-# BingImageFethcer
+# BingImageFetcher
 Sets bing image of the day as wallapaper
 
 <b>How to install</b></br>
