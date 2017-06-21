@@ -5,20 +5,27 @@ import sys
 import requests
 
 website_url = "https://www.bing.com"
-epoch_time = int(os.popen('date +%s').read())
 
-def fetch_file(url,index,user_name):
-	global epoch_time
+#function to download file
+def fetch_file(url,file_name,user_name):
 	download_dir="/home/"+user_name+"/Pictures/Wallpaper/bing/"
-	name = str(epoch_time) + ".jpg"
-	testfile = urllib.URLopener()
-	print "Starting Download File: "+str(index)
-	testfile.retrieve(url, download_dir+name)
-	print "Download finished File: "+str(index)
+	downlaodfile = urllib.URLopener()
+	print "Starting Download of File: "+file_name
+	downlaodfile.retrieve(url, download_dir+file_name)
+	print "Download finished of File: "+file_name
 	return
+
+#Check if file already exists
+def get_file_download_status(file_name,user_name):
+	download_dir="/home/"+user_name+"/Pictures/Wallpaper/bing/"
+	file_list = os.listdir(download_dir)
+	if file_name in file_list:
+		return False
+	return True
+
 #main function to be ca lled from other script
 def download_all_wallpaper(user_name):
-	req_bing = requests.get(website_url+"/HPImageArchive.aspx", params={'format':'js','idx':'0','n':'1','mkt':'en-US'})
+	req_bing = requests.get(website_url+"/HPImageArchive.aspx", params={'format':'js','idx':'0','n':'10','mkt':'en-US'})
 
 	#parse json
 	data = req_bing.json()
@@ -27,17 +34,12 @@ def download_all_wallpaper(user_name):
 	for i in range(0,index_max):
 		base_url = data["images"][i]["urlbase"]
 		download_url = website_url+base_url+"_1366x768.jpg"
+		file_name = download_url.split("/")[-1]
 		print download_url
-		fetch_file(download_url,i,user_name)
-	update_time_in_file(user_name)
-	return
-
-#function to write time
-def update_time_in_file(user_name):
-	#update data file with last downloaded time
-	file = open('/home/'+user_name+'/BingImageFetcher/DataFiles/time.data','w')
-	file.write(str(epoch_time))
-	file.close()
+		if get_file_download_status(file_name,user_name):
+			fetch_file(download_url,file_name,user_name)
+		else:
+			print "File already exists: "+file_name
 	return
 
 if __name__ == "__main__":

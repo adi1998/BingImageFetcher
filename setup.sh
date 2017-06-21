@@ -56,7 +56,7 @@ sudo chmod +x ~/BingImageFetcher/CronScript.sh
 
 crontab -l >~/BingImageFetcher/tmp/cronjob
 echo "#BingImageFetcher script **don't edit next line**">>~/BingImageFetcher/tmp/cronjob
-echo "07 * * * * /home/$USER/BingImageFetcher/CronScript.sh">>~/BingImageFetcher/tmp/cronjob
+echo "*/30 * * * * /home/$USER/BingImageFetcher/CronScript.sh">>~/BingImageFetcher/tmp/cronjob
 
 crontab ~/BingImageFetcher/tmp/cronjob
 echo "Removing temporary files"

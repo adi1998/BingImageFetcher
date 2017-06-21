@@ -3,18 +3,8 @@ import random
 import glob
 import sys
 
-def check_if_day_passed(user_name):
-	#Read when was wallpapers last downloaded
-	current_epoch_time = int(os.popen('date +%s').read())
-	file = open('/home/'+user_name+'/BingImageFetcher/DataFiles/time.data','r')
-	last_download_time_passed = current_epoch_time - int(file.read())
-	file.close()
-
-	if last_download_time_passed/86400.0>=1:
-		os.system("python /home/"+user_name+"/BingImageFetcher/download.py "+user_name)
-		print "New wallpaper downloaded"
-	else:
-		print "Not a day passed yet"
+def get_new_wallpapers(user_name):
+	os.system("python /home/"+user_name+"/BingImageFetcher/download.py "+user_name)
 	return
 
 def get_image_path(user_name):
@@ -37,5 +27,5 @@ if __name__ == "__main__":
 	except:
 		print "Argument missing"
 		sys.exit()
-	check_if_day_passed(user_name)
+	get_new_wallpapers(user_name)
 	change_wallpaper(user_name)
