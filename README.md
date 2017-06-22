@@ -7,3 +7,8 @@ Sets bing image of the day as wallapaper
 3)Execute setup.sh</br>
 4)Enter password if asked for</br>
 5)Enjoy!!!</br>
+
+<b>Version Log</b></br>
+[2.0.0]:Initial Commit</br>
+[2.1.0]:Edited download.py to make downloads more better and timely</br>
+[2.2.1]:Added archive.py</br>
