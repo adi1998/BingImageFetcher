@@ -4,6 +4,7 @@ import glob
 import sys
 
 def get_new_wallpapers(user_name):
+	os.system("python /home/"+user_name+"/BingImageFetcher/archive.py "+user_name)
 	os.system("python /home/"+user_name+"/BingImageFetcher/download.py "+user_name)
 	return
 

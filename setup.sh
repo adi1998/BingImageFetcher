@@ -12,19 +12,22 @@ echo "Setting up at /home/$USER/BingImageFetcher"
 echo "Creating required Files"
 
 echo "Creating directory ~/BingImageFetcher"
-mkdir ~/BingImageFetcher
+mkdir -p ~/BingImageFetcher
 
 echo "Creating directory ~/BingImageFetcher/DataFiles"
-mkdir ~/BingImageFetcher/DataFiles
+mkdir -p ~/BingImageFetcher/DataFiles
 
 echo "Creating directory ~/BingImageFetcher/tmp"
-mkdir ~/BingImageFetcher/tmp
+mkdir -p ~/BingImageFetcher/tmp
 
 echo "Creating directory ~/Pictures/Wallpaper"
-mkdir ~/Pictures/Wallpaper
+mkdir -p ~/Pictures/Wallpaper
 
 echo "Creating directory ~/Pictures/Wallpaper/bing"
-mkdir ~/Pictures/Wallpaper/bing
+mkdir -p ~/Pictures/Wallpaper/bing
+
+echo "Creating directory ~/Pictures/Wallpaper/bing/archive"
+mkdir -p ~/Pictures/Wallpaper/bing/archive
 
 echo "Creating file ~/BingImageFetcher/DataFiles/time.data"
 echo "Writing file ~/BingImageFetcher/DataFiles/time.data"
@@ -36,7 +39,10 @@ cp $SCRIPTPATH/download.py ~/BingImageFetcher/download.py
 echo "Copying from to $SCRIPTPATH/mainscript.py ~/BingImageFetcher"
 cp $SCRIPTPATH/mainscript.py ~/BingImageFetcher/mainscript.py
 
-echo "Copying from to $SCRIPTPATH/setup.py ~/BingImageFetcher"
+echo "Copying from to $SCRIPTPATH/archive.py ~/BingImageFetcher"
+cp $SCRIPTPATH/archive.py ~/BingImageFetcher/archive.py
+
+echo "Copying from to $SCRIPTPATH/setup.sh ~/BingImageFetcher"
 cp $SCRIPTPATH/setup.sh ~/BingImageFetcher/setup.sh
 
 echo "Copying from to $SCRIPTPATH/config.data ~/BingImageFetcher"
