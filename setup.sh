@@ -29,10 +29,6 @@ mkdir -p ~/Pictures/Wallpaper/bing
 echo "Creating directory ~/Pictures/Wallpaper/bing/archive"
 mkdir -p ~/Pictures/Wallpaper/bing/archive
 
-echo "Creating file ~/BingImageFetcher/DataFiles/time.data"
-echo "Writing file ~/BingImageFetcher/DataFiles/time.data"
-echo "0">~/BingImageFetcher/DataFiles/time.data
-
 echo "Copying from to $SCRIPTPATH/download.py ~/BingImageFetcher"
 cp $SCRIPTPATH/download.py ~/BingImageFetcher/download.py
 
