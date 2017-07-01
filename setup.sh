@@ -45,20 +45,11 @@ echo "Copying from to $SCRIPTPATH/config.data ~/BingImageFetcher"
 cp $SCRIPTPATH/config.data ~/BingImageFetcher/config.data
 echo "Copying completed"
 
-echo "Setting up Cron Job (May Require root permission)"
-echo "#!/bin/bash
-
-#Stuff for proper working of gsettings with cronjob
-PID=\$(pgrep -o gnome-session)
-export DBUS_SESSION_BUS_ADDRESS=\$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/\$PID/environ|cut -d= -f2-)
-
-#Call the main script
-python /home/$USER/BingImageFetcher/mainscript.py $USER">~/BingImageFetcher/CronScript.sh
-sudo chmod +x ~/BingImageFetcher/CronScript.sh
+echo "Setting up Cron Job"
 
 crontab -l >~/BingImageFetcher/tmp/cronjob
 echo "#BingImageFetcher script **don't edit next line**">>~/BingImageFetcher/tmp/cronjob
-echo "*/30 * * * * /home/$USER/BingImageFetcher/CronScript.sh">>~/BingImageFetcher/tmp/cronjob
+echo "*/30 * * * * /home/$USER/BingImageFetcher/mainscript.py $USER">>~/BingImageFetcher/tmp/cronjob
 
 crontab ~/BingImageFetcher/tmp/cronjob
 echo "Removing temporary files"
