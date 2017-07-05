@@ -12,12 +12,16 @@ def get_image_path(user_name):
 		return str(None)
 	return random.choice(image_list)
 
-def change_wallpaper(user_name):
-	#image to be set
-	lucky_choice = get_image_path(user_name)
+def change_wallpaper(user_name,lucky_choice):
+	#if no image parameter set	
+	if lucky_choice == "NULL":
+		#image to be set
+		lucky_choice = get_image_path(user_name)
 	print lucky_choice
-	#Export Display added in cronscript.sh
+
+	#Export Display now added here
 	os.system("PID=$(pgrep -o gnome-session)&&export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ|cut -d= -f2-)&&gsettings set org.gnome.desktop.background picture-uri file://"+lucky_choice)
+	return
 	
 if __name__ == "__main__":
 	try:
@@ -25,7 +29,8 @@ if __name__ == "__main__":
 	except:
 		print "Argument missing"
 		sys.exit()
+
 	if download.download_all_wallpaper(user_name):
 		archive.find_files_to_archive(user_name) #got new wallpapers then archive old
 	else:
-		change_wallpaper(user_name)	#if not change cureent wallpaper
+		change_wallpaper(user_name,"NULL")	#if not change cureent wallpaper
