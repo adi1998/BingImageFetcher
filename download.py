@@ -32,7 +32,7 @@ def download_all_wallpaper(user_name):
 	global got_new_wallpaper
 
 	try:
-		req_bing = requests.get(website_url+"/HPImageArchive.aspx", params={'format':'js','idx':'0','n':'10','mkt':'en-US'})
+		req_bing = requests.get(website_url+"/HPImageArchive.aspx", params={'format':'js','idx':'0','n':'10','mkt':'en-IN'})
 	except requests.exceptions.ConnectionError:
 		print "Connection failed to https://bing.com"
 		return False
