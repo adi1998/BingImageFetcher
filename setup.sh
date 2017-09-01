@@ -57,5 +57,7 @@ echo "Setup Complete"
 echo -e "\033[0;31mRemoving temporary files"
 rm -r ~/BingImageFetcher/tmp
 echo -e "You may delete this files\033[0m"
+echo -e "Changing wallpaper"
+python ~/BingImageFetcher/mainscript.py "$USER"
 
 #author gr33n5h4d0w
