@@ -14,3 +14,4 @@ Sets bing image of the day as wallapaper
 [2.5.1]:Works without internet connection and optimizations done</br>
 [2.6.1]:Bug fix in cronjob and installation process</br>
 [2.7.1]:Runs after installation</br>
+[2.8.1]:No need to assign execute permission to setup.sh</br>
