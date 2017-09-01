@@ -14,3 +14,4 @@ Sets bing image of the day as wallapaper
 [2.4.0]:Doesn't require root permission to setup script</br>
 [2.5.1]:Works without internet connection and optimizations done</br>
 [2.6.1]:Bug fix in cronjob and installation process</br>
+[2.7.1]:Runs after installation</br>
