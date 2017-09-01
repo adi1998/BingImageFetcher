@@ -2,9 +2,8 @@
 Sets bing image of the day as wallapaper
 
 <b>How to install</b></br>
-1)Assign execute permission to setup.sh (sudo chmod +x setup.sh)</br>
-2)Execute setup.sh</br>
-3)Enjoy!!!</br>
+1)Execute setup.sh</br>
+2)Enjoy!!!</br>
 
 <b>Version Log</b></br>
 [2.0.0]:Initial Commit</br>
