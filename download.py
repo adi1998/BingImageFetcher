@@ -2,7 +2,6 @@ import json
 import os
 import urllib
 import sys
-import requests
 import mainscript
 
 website_url = "https://www.bing.com"
@@ -32,13 +31,13 @@ def download_all_wallpaper(user_name):
 	global got_new_wallpaper
 
 	try:
-		req_bing = requests.get(website_url+"/HPImageArchive.aspx", params={'format':'js','idx':'0','n':'10','mkt':'en-IN'})
-	except requests.exceptions.ConnectionError:
+		req_bing = urllib.urlopen(website_url+"/HPImageArchive.aspx?format=js&idx=0&n=10&mkt=en-IN").read()
+	except :
 		print "Connection failed to https://bing.com"
 		return False
 
 	#parse json
-	data = req_bing.json()
+	data = json.load(req_bing)
 	index_max = len(data["images"]) #no of images on server
 	
 	for i in range(0,index_max):
