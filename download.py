@@ -31,7 +31,7 @@ def download_all_wallpaper(user_name):
 	global got_new_wallpaper
 
 	try:
-		req_bing = urllib.urlopen(website_url+"/HPImageArchive.aspx?format=js&idx=0&n=10&mkt=en-IN").read()
+		req_bing = urllib.urlopen(website_url+"/HPImageArchive.aspx?format=js&idx=0&n=10&mkt=en-IN")
 	except :
 		print "Connection failed to https://bing.com"
 		return False
