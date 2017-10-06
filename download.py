@@ -11,9 +11,9 @@ got_new_wallpaper = None
 def fetch_file(url,file_name,user_name):
 	global got_new_wallpaper
 	download_dir="/home/"+user_name+"/Pictures/Wallpaper/bing/"
-	downlaodfile = urllib.URLopener()
+	downloadfile = urllib.URLopener()
 	print "Starting Download of File: "+file_name
-	downlaodfile.retrieve(url, download_dir+file_name)
+	downloadfile.retrieve(url, download_dir+file_name)
 	print "Download finished of File: "+file_name
 	got_new_wallpaper = file_name
 	return
